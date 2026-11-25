@@ -1,0 +1,14 @@
+@mixin flex-row {
+  display: flex;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+

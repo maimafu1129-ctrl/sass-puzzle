@@ -1,0 +1,62 @@
+@use "app";
+@use "reset";
+
+.header {
+    @include app.size(400px, 100px);
+    background-color: app.$navy;
+
+    position: relative; // 追加！
+
+    .header-container {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        padding: 10px;
+        background-color: app.$white;
+
+        .box-list {
+            @include app.flex-row;
+            gap: 10px;
+
+            @each $className, $color in zip(app.$classNames, app.$buttonColor) {
+                .box-#{$className} {
+                    @include app.size(40px, 40px);
+                    background-color: $color;
+                }
+            }
+        }
+    }
+}
+
+.main {
+    @include app.size(400px, 250px);
+    @include app.flex-row;
+    background-color: app.$red;
+
+    .sidebar {
+        @include app.size(150px, 250px);
+        background-color: app.$green;
+    }
+
+    .main-container {
+        margin: 40px 40px;
+
+        .box-list {
+            @include app.flex-column;
+            gap: 20px;
+
+            @each $className, $color in zip(app.$classNames, app.$buttonColor) {
+                .box-#{$className} {
+                    @include app.size(140px, 40px);
+                    background-color: $color;
+                    border: 5px solid app.$white;
+                }
+            }
+        }
+    }
+}
+
+.footer {
+    background-color: app.$brown;
+    @include app.size(400px, 100px);
+}
