@@ -1,0 +1,49 @@
+@use "reset";
+@use "app";
+
+.header {
+    @include app.size(400px, 100px);
+    background-color: app.$navy;
+    position: relative; 
+
+    .header-container {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        padding: 10px;
+        background-color: app.$white;
+
+        .box-list {
+            display: flex;
+            gap: 10px;
+
+            @include app.box-list(40px, 40px);
+        }
+    }
+}
+
+.main {
+    @include app.size(400px, 250px);
+    display: flex;
+    background-color: app.$red;
+
+    .sidebar {
+        @include app.size(150px, 250px);
+        background-color: app.$green;
+    }
+
+    .main-container {
+        margin: 40px 40px;
+
+        .box-list {
+            @include app.flex-column;
+            gap: 20px;
+            @include app.box-list(140px, 40px, 5px solid app.$white);
+        }
+    }
+}
+
+.footer {
+    background-color: app.$brown;
+    @include app.size(400px, 100px);
+}

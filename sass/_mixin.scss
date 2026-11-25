@@ -1,0 +1,26 @@
+@use "variable" as *;
+
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin box($color) {
+  background-color: $color;
+}
+
+@mixin box-list($width, $height, $border: none) {
+    @each $className, $color in zip($classNames, $buttonColor) {
+        .box-#{$className} {
+            @include size($width, $height);
+            @include box($color);
+            border: $border;
+        }
+    }
+}
