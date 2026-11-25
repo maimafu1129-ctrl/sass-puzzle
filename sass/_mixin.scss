@@ -12,3 +12,6 @@
   height: $height;
 }
 
+@mixin box($color) {
+  background-color: $color;
+}

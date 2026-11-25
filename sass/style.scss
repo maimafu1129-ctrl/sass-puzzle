@@ -4,8 +4,7 @@
 .header {
     @include app.size(400px, 100px);
     background-color: app.$navy;
-
-    position: relative; // 追加！
+    position: relative; 
 
     .header-container {
         position: absolute;
@@ -21,7 +20,7 @@
             @each $className, $color in zip(app.$classNames, app.$buttonColor) {
                 .box-#{$className} {
                     @include app.size(40px, 40px);
-                    background-color: $color;
+                    @include app.box($color);
                 }
             }
         }
@@ -48,7 +47,7 @@
             @each $className, $color in zip(app.$classNames, app.$buttonColor) {
                 .box-#{$className} {
                     @include app.size(140px, 40px);
-                    background-color: $color;
+                    @include app.box($color);
                     border: 5px solid app.$white;
                 }
             }
